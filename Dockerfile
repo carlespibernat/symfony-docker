@@ -1,6 +1,6 @@
 FROM php:7.4-apache
 
-RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ git zip libxslt-dev
+RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ git zip libxslt-dev jq
 
 RUN a2enmod rewrite
 

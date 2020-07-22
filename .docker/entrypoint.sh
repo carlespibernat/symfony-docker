@@ -3,6 +3,7 @@ set -e
 
 if [ ! -f composer.json ]; then
     composer create-project "symfony/skeleton" tmp --stability=stable --prefer-dist --no-progress --no-interaction
+    jq '.extra.symfony.docker=true' tmp/composer.json > tmp/composer.tmp.json
     rm tmp/composer.json
     mv tmp/composer.tmp.json tmp/composer.json
 
