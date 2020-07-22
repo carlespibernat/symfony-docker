@@ -14,9 +14,8 @@ services:
       - /var/www/html/var/logs/
       - /var/www/html/var/sessions/
     environment:
-      VIRTUAL_HOST: app.local
-    env_file:
-      - .env.docker
+      - VIRTUAL_HOST=app.local
+      - XDEBUG_CONFIG=remote_host=192.168.1.4 xdebug.idekey=''
 networks:
   default:
     external:
