@@ -1,0 +1,23 @@
+
+version: "3"
+services:
+  php:
+    build:
+      context: ./
+      args:
+        - WITH_XDEBUG=true
+    container_name: app
+    volumes:
+      - ./:/var/www/html:rw,cached
+      - /var/www/html/var/
+      - /var/www/html/var/cache/
+      - /var/www/html/var/logs/
+      - /var/www/html/var/sessions/
+    environment:
+      VIRTUAL_HOST: app.local
+    env_file:
+      - .env.docker
+networks:
+  default:
+    external:
+      name: nginx-proxy
