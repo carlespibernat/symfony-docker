@@ -1,4 +1,7 @@
-FROM php:7.4-apache
+ARG SYMFONY_VERSION=""
+ARG PHP_VERSION=7.4
+
+FROM php:${PHP_VERSION}-apache
 
 RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ git zip libxslt-dev jq
 
